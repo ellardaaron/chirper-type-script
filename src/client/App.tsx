@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 
-import './scss/app';
+// import './scss/app';
 
 const App: React.SFC<IAppProps> = props => {
 	
@@ -9,8 +9,9 @@ const App: React.SFC<IAppProps> = props => {
 
 	const getName = async () => {
 		let r = await fetch ('/api/hello');
-		let name = await r.json;
+		let name = await r.json();
 		setName(name);
+		console.log(name);
 	}
 
 	useEffect (() => {
@@ -19,7 +20,7 @@ const App: React.SFC<IAppProps> = props => {
 
 	return(
 		<main className="container">
-			<h1 className="covalence-blue">Hello {name}!</h1>
+			<h1 className="text-primary text-center">Hello {name}!</h1>
 		</main>
 	)
 }
