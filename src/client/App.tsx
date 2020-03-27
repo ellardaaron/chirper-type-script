@@ -1,30 +1,31 @@
 import * as React from 'react';
-import {useState, useEffect} from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './views/Home';
+import Details from './views/Details';
+import Admin from './views/admin';
+import Compose from './views/compose';
 
-// import './scss/app';
-
-const App: React.SFC<IAppProps> = props => {
-	
-	const [ name, setName ] = useState<string>('');
-
-	const getName = async () => {
-		let r = await fetch ('/api/hello');
-		let name = await r.json();
-		setName(name);
-		console.log(name);
-	}
-
-	useEffect (() => {
-		getName();
-	}, []);
-
-	return(
-		<main className="container">
-			<h1 className="text-primary text-center">Hello {name}!</h1>
-		</main>
-	)
+const App: React.FC<AppProps> = () => {
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route exact path ="/">
+					<Home />
+				</Route>
+				<Route exact path ="/details/:id">
+					<Details />
+				</Route>
+				<Route exact path ="/admin/:id">
+					<Admin />
+				</Route>
+				<Route exact path ="/compose">
+					<Compose />
+				</Route>
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
-export default App;
+interface AppProps {}
 
-interface IAppProps { }
+export default App;
