@@ -26,7 +26,7 @@ const Details: React.FC<DetailsProps> = () => {
                             <h4 className="card-title">{chirp?.username}</h4>
                             <p className="card-text">{chirp?.message}</p>
                             <div className="d-flex justify-content-end align-items-center">
-                                <button onClick={() => history.goBack()} className="btn btn-small btn-outline-primary mx-1">Go Back</button>
+                                <button onClick={() => history.push('/')} className="btn btn-small btn-outline-primary mx-1">Go Back</button>
                                 <Link className="btn btn-small btn-outline-secondary mx-1" to={`/admin/${chirp?.id}`}>Edit</Link>
                             </div>
                         </div>

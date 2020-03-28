@@ -4,10 +4,12 @@ import Home from './views/Home';
 import Details from './views/Details';
 import Admin from './views/admin';
 import Compose from './views/compose';
+import Navbar from './components/Navbar';
 
 const App: React.FC<AppProps> = () => {
 	return (
 		<BrowserRouter>
+			<Navbar />
 			<Switch>
 				<Route exact path ="/">
 					<Home />
