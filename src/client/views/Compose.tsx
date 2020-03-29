@@ -13,7 +13,7 @@ const Compose: React.FC<ComposeProps> = () => {
     const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value);
 
     const submitChirp = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
+        e.preventDefault();        
         let res = await fetch ('/api/chirps', {
             method: 'POST',
             headers : {
